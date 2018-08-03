@@ -1,25 +1,34 @@
 import sys
 import os
 
-appName = "YourAppName"
+appName = "AppDefaultName"
 
 if __name__ == "__main__":
     print(sys.argv)
-    fileName = sys.argv[1]
-    print(fileName)
+    fileName = ""
+    version = ""
+    for index in range(1, len(sys.argv)):
+        param = str(sys.argv[index])
+        if param.startswith("-"):
+            if param == '-c':
+                fileName = sys.argv[index + 1]
+            elif param == '-v' or param == '-version':
+                version = sys.argv[index + 1]
+            elif param == '-v':
+                appName = param[index + 1]
 
+    print('fileName=', fileName)
+    print('version=', version)
+    print('appName=', appName)
+    
     if len(fileName) == 0:
-        print("No fileName, Please Input a FileName")
+        print("No fileName")
         exit(0)
 
     cmd = './symbolicatecrash ' + fileName + ".crash " + appName
-
-    version = ""
-    if len(sys.argv) > 2:
-        version = str(sys.argv[2])
     cmd = cmd + version + ".app"
-
     cmd = cmd + " > " + fileName + ".log"
+
     # print("cmd = ", cmd)
     print("正在解析...")
     os.system(cmd)
