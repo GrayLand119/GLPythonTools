@@ -21,6 +21,11 @@ Auto recursive iOS Symbol in Crash Logs. iOS奔溃日志自动解析(符号化).
 ```python
 python ReSymbol.py -c "CrashFileName" -a "YourAppName" 
 ```
+如果出现:
+
+输入:
+
+`export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"`
 
 ## Sample
 
