@@ -15,8 +15,8 @@ Auto recursive iOS Symbol in Crash Logs. iOS奔溃日志自动解析(符号化).
 * CrashFile.crash
 
 参数说明:
-* `-c` 崩溃日志文件 -> XXX.crash
-* `-a` APP文件 -> XXX.app
+* `-c` 崩溃日志文件 -> `CrashFile.crash` 文件则输入 `CrashFile`
+* `-a` APP文件 -> `YourAppName.app` 输入 `YourAppName`
 
 ```python
 python ReSymbol.py -c "CrashFileName" -a "YourAppName" 
